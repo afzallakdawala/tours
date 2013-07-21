@@ -1,0 +1,74 @@
+%hr
+  .container
+    .row
+      .span5
+        .thumbnail
+          .well
+            %i.icon-plane.icon-large
+            %strong Haj, Umrah, Ziyarat Search - 2013
+
+          = form_tag do
+            %table.table
+              %th
+                Looking for
+              %td
+                = radio_button("search", "pilgirm", 1)
+                %strong Haj
+                = radio_button("search", "pilgirm", 2)
+                %strong Umrah
+                = radio_button("search", "pilgirm", 3)
+                %strong Ziyarat
+              %tr
+                %th
+                  When on
+                %td
+                  = date_field_tag 'journey_date', :class => 'input-medium'
+              %tr
+                %th
+                  From
+                %td
+                  = select_tag :operator_id, options_for_select([['Mumbai',"mumbai"], ['Bangalore', 2]]),:prompt => 'Select'  
+              %tr
+                %th
+
+                %td
+                  = submit_tag "Search", :name => 'view', :class => 'btn btn-primary'
+      .span7
+        %strong Welcome to MySite.com,
+        Here you can search your pilgrim depature and availibity on tours. You can search all Haj, Umrah, Ziyarat tour,
+        with our registered tour operators and will make your journey "Insha-Allah,Al-Hamdulillah".
+        %p
+          =image_tag "main-page.jpg", :class=>"img-rounded"
+    .row
+      .span6
+        %hr
+        .media
+          =image_tag "media.png", :width=> "75", :class=>"media-object pull-left"
+  
+          .media-body
+            %h4.media-heading MySite.com Advantages to Haji's
+            %ul
+              %li
+                Instant call from yours nearest tour operator.
+              %li
+                Best pricing for Haj, Umrah & Ziyarat.
+              %li
+                Best tour operators.
+              %li
+                Check online availibility of Haj, Umrah & Ziyarat packages.
+      .span6
+        %hr
+        .media
+          =image_tag "tour-operator.jpg", :width=> "75", :class=>"media-object pull-left"
+  
+          .media-body
+            %h4.media-heading MySite.com Advantages to Tour Operator
+            %ul
+              %li
+                Free registration, and creation of serveral depature of haj,Umrah, Ziyarat tours
+              %li
+                Instant enquiry from Haji anywhere in world via mail.
+              %li
+                Haji's will know your online presence of availibility.
+
+

@@ -1,0 +1,45 @@
+!!! 5
+%html
+  %head
+    %title= "Haj Umrah search engine"
+    %meta{ :content => "", :name => "description" }
+    %meta{ :content => "Afzal-lakdawala", :name => "author" }
+    %meta{ :content => "width=device-width, initial-scale=1.0", :name => "viewport" }
+    = stylesheet_link_tag "application", :media => 'all'
+    %link{:href => '//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css', :type=>'text/css', :rel => 'stylesheet' }/
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    -if 1 == 2
+      .navbar.navbar-fixed-top
+        .navbar-inner
+          .container
+            %ul.nav.nav-pills
+              %li
+                %a.brand{:href => '/'} Admin
+              %li
+                %a{:href => "#"} Tour
+              %li
+                %a{:href => '#'} Company
+              %li
+                %a{:href => '#'} Why Jekyll?
+    -else
+      .container
+        .row
+          .span4
+            =image_tag "home-icon.png", :height => "50", :width => "50"
+            %a{:href => "#"}
+              %strong MySite.com
+              %span.label.label-important  Beta
+          .span8
+            .navbar.pull-right
+              .navbar-inner
+                .container
+                  = button_tag "Operator Login", :name => 'view', :class => 'btn btn-success'
+                  %strong OR
+                  = button_tag "Operator Sign Up", :name => 'view', :class => 'btn btn-primary'
+                      
+          
+    .container
+      = yield

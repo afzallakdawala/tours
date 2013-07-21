@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  database: tours
+  username: afzal
+  password: afzal
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: tours_test
+  username: afzal
+  password: afzal
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  database: tours
+  username: afzal
+  password: afzal
+  pool: 5
+  timeout: 5000

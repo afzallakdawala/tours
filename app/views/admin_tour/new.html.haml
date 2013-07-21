@@ -1,0 +1,21 @@
+.container
+  .row
+    = form_tag do
+      .span12
+        %h1 Tour creation
+        %table.table
+          %tr
+            %th
+              Date
+            %td
+              = date_field_tag "operator_name"
+          %tr
+            %th
+              About
+            %td
+              =text_area("message", "about")
+
+
+
+        .actions
+          = submit_tag "View", :name => 'view', :class => 'btn btn-primary'

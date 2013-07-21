@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2013-07-19 15:23:04
+  tour_id: 
+  about: MyString
+  available: 
+
+two:
+  date: 2013-07-19 15:23:04
+  tour_id: 
+  about: MyString
+  available: 
