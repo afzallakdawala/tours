@@ -29,16 +29,16 @@
         .row
           .span4
             =image_tag "home-icon.png", :height => "50", :width => "50"
-            %a{:href => "#"}
+            %a{:href => home_index_path}
               %strong MySite.com
               %span.label.label-important  Beta
           .span8
             .navbar.pull-right
               .navbar-inner
                 .container
-                  = button_tag "Operator Login", :name => 'view', :class => 'btn btn-success'
+                  %a{:href=> home_login_path, :class=>'btn btn-success'} Operator Login
                   %strong OR
-                  = button_tag "Operator Sign Up", :name => 'view', :class => 'btn btn-primary'
+                  %a{:href=> home_sign_up_path, :class=>'btn btn-primary'} Operator Sign Up
                       
           
     .container

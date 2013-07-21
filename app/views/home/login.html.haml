@@ -1,0 +1,73 @@
+%hr
+  .container
+    .row
+      .span5
+        .thumbnail
+          .well
+            %i.icon-lock.icon-large
+            %strong Tour Operator Login
+
+          = form_tag do
+            %table.table
+              %th
+                Username
+              %td
+                .input-append
+                  =text_field_tag 'username', nil, placeholder: 'Username', :class=>"input-medium"
+                  %span.add-on
+                    %i.icon-user                
+
+              %tr
+                %th
+                  Password
+                %td
+                  .input-append
+                    = password_field_tag 'password', nil, placeholder: 'Password', :class=>"input-medium"
+                    %span.add-on
+                      %i.icon-lock                               
+              %tr
+                %th
+                %td
+                  = submit_tag "Login", :name => 'view', :class => 'btn btn-primary'
+      .span7
+        .media
+          =image_tag "tour-operator.jpg", :width=> "75", :class=>"media-object pull-left"
+  
+          .media-body
+            %h4.media-heading MySite.com Advantages to Tour Operator
+            %ul
+              %li
+                Free registration, and creation of serveral depature of haj,Umrah, Ziyarat tours
+              %li
+                Instant enquiry from Haji anywhere in world via mail.
+              %li
+                Haji's will know your online presence of availibility.
+              %li
+                Haji's will know your latest offers, discounts
+              %li
+                No commission, processing fee all its free.
+
+
+        .media
+          =image_tag "media.png", :width=> "75", :class=>"media-object pull-left"
+  
+          .media-body
+            %h4.media-heading MySite.com Advantages to Haji's
+            %ul
+              %li
+                Instant call from yours nearest tour operator.
+              %li
+                Best pricing for Haj, Umrah & Ziyarat.
+              %li
+                Best tour operators.
+              %li
+                Check online availibility of Haj, Umrah & Ziyarat packages.
+              %li
+                Don't need to go anywhere for availibility 
+
+
+    .row
+      .span12
+        %hr
+        =image_tag "haj-umrah-ziyarat.png"
+  
