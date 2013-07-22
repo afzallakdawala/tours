@@ -11,7 +11,12 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem "haml-rails"
+gem 'devise', '3.0.0.rc'
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
