@@ -8,12 +8,16 @@
             %strong Tour Operator Login
 
           = form_tag do
+            - if !notice.blank?
+              .alert.alert-error
+                %button.close{ "data-dismiss" => "alert" }x
+                = notice
             %table.table
               %th
                 Username
               %td
                 .input-append
-                  =text_field_tag 'username', nil, placeholder: 'Username', :class=>"input-medium"
+                  =text_field_tag 'username', nil, placeholder: 'User Email id', :class=>"input-medium"
                   %span.add-on
                     %i.icon-user                
 
@@ -28,7 +32,7 @@
               %tr
                 %th
                 %td
-                  = submit_tag "Login", :name => 'view', :class => 'btn btn-primary'
+                  = submit_tag "Login", :name => 'login', :class => 'btn btn-primary'
       .span7
         .media
           =image_tag "tour-operator.jpg", :width=> "75", :class=>"media-object pull-left"

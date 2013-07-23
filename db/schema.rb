@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130722063954) do
+ActiveRecord::Schema.define(version: 20130723082859) do
 
   create_table "tests", force: true do |t|
     t.datetime "created_at"
@@ -35,10 +35,12 @@ ActiveRecord::Schema.define(version: 20130722063954) do
     t.string   "tel"
     t.string   "mobile"
     t.string   "email_id"
-    t.string   "password"
     t.integer  "verified_tour"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.string   "password"
   end
 
 end

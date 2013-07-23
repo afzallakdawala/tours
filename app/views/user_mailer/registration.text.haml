@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>#312 Sending HTML Email - RailsCasts</title>
+    <meta name="description" content="Short Ruby on Rails screencasts containing tips, tricks and tutorials. Great for both novice and experienced web developers." />
+    <meta name="keywords" content="rails, ruby on rails, screencasts, railscast, railscasts, tips, tricks, tutorials, training, podcasts, programming" />
+    <link rel="alternate" type="application/rss+xml" title="Episodes RSS" href="http://feeds.feedburner.com/railscasts" />
+    <link href="/assets/application-f33052609391fcb2333fb8c560544e00.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="http://cdn.sublimevideo.net/js/3s7oes9q.js" type="text/javascript"></script>
+    <script src="/assets/application-fe460ed6c034ee8c95a2a78f52d7a5d9.js" type="text/javascript"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="dg4JP+rqHcQmwy9388c/6mxkGgB7+DUsV9xTkhWJG/4=" name="csrf-token" />
+    
+  </head>
+  <body>
+    <div id="top">
+      <div class="logo"><a href="/"><img alt="RailsCasts - Ruby on Rails Screencasts" height="56" src="/assets/railscasts_logo-7101a7cd0a48292a0c07276981855edb.png" width="423" /></a></div>
+      <div class="user_nav">
+          <a href="/login?return_to=http%3A%2F%2Frailscasts.com%2Fepisodes%2F312-sending-html-email%3Fautoplay%3Dtrue">Sign in through GitHub</a>
+      </div>
+      <ul class="subscribe horizontal">
+        <li>
+          <a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=218282043"><img alt="Itunes" height="34" src="/assets/icons/itunes-ea9253b9b183d9788bef2cdfe326f38e.png" width="34" /></a>
+          <span class="name">watch on iTunes</span>
+        </li>
+        <li>
+          <a href="http://twitter.com/railscasts"><img alt="Twitter" height="34" src="/assets/icons/twitter-f0259ab802804e09139fb29f47678b2c.png" width="34" /></a>
+          <span class="name">follow on Twitter</span>
+        </li>
+        <li>
+          <a href="http://www.facebook.com/pages/railscasts/197415140659"><img alt="Facebook" height="34" src="/assets/icons/facebook-0ab869e74b54d9c58f33c1c75264d869.png" width="34" /></a>
+          <span class="name">follow on Facebook</span>
+        </li>
+        <li>
+          <a href="http://feeds.feedburner.com/railscasts"><img alt="Rss" height="34" src="/assets/icons/rss-04cb962054caa957a6fa3924c48594d8.png" width="34" /></a>
+          <span class="name">subscribe to RSS feed</span>
+        </li>
+      </ul>
+    </div>
+
+    <div id="nav_bar">
+      <ul class="nav horizontal">
+        <li><a href="http://railscasts.com/">Browse Episodes</a></li>
+        <li><a href="/pro">RailsCasts Pro</a></li>
+        <li><a href="/notifications">Notifications</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/feedback">Feedback</a></li>
+      </ul>
+      <form accept-charset="UTF-8" action="http://railscasts.com/episodes" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+        <input id="search" name="search" size="35" type="text" />
+        <input type="submit" value="Search Episodes" />
+</form>    </div>
+
+    
+
+
+    <div id="main">
+
+      
+  <div id="episode">
+    <div id="video_wrapper"><video width="960" height="600" poster="/static/episodes/posters/loading.png" controls="controls" preload="none" class="sv_force_fullscreen sv_force_flash"><source src="http://media.railscasts.com/assets/episodes/videos/312-sending-html-email.mp4" type="video/mp4"/><source src="http://media.railscasts.com/assets/episodes/videos/312-sending-html-email.m4v" type="video/mp4"/><source src="http://media.railscasts.com/assets/episodes/videos/312-sending-html-email.webm" type="video/webm"/><source src="http://media.railscasts.com/assets/episodes/videos/312-sending-html-email.ogv" type="video/ogg"/></video></div>
+    <div class="info video_info">
+      <div class="screenshot"><a href="/episodes/312-sending-html-email?autoplay=true" class="play_video"><img alt="Sending HTML Email" height="125" src="/static/episodes/stills/312-sending-html-email.png" width="200" /></a></div>
+      <h1><span class="position">#312</span> Sending HTML Email</h1>
+      <div class="details">Jan 02, 2012 | 5 minutes | <a href="/?tag_id=12">Tools</a>, <a href="/?tag_id=28">Mailing</a></div>
+      <div class="description">HTML email can be difficult to code because any CSS should be made inline. Here I present a few tools for doing this including the premailer-rails3 and roadie gems.</div>
+      <div class="watch"><a href="/episodes/312-sending-html-email?autoplay=true" class="play_video pretty_button">Click to Play Video &#9654;</a></div>
+      <div class="social"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-text="Watching Sending HTML Email on RailsCasts" data-url="http://railscasts.com/episodes/312-sending-html-email" data-via="railscasts">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
+        <ul class="downloads horizontal">
+          <li>Download:</li>
+          <li><a href="http://media.railscasts.com/assets/episodes/sources/312-sending-html-email.zip">source code</a><span class="overlay">Project Files in Zip (41.6 KB)</span></li><li><a href="http://media.railscasts.com/assets/episodes/videos/312-sending-html-email.mp4">mp4</a><span class="overlay">Full Size H.264 Video (16 MB)</span></li><li><a href="http://media.railscasts.com/assets/episodes/videos/312-sending-html-email.m4v">m4v</a><span class="overlay">Smaller H.264 Video (9.19 MB)</span></li><li><a href="http://media.railscasts.com/assets/episodes/videos/312-sending-html-email.webm">webm</a><span class="overlay">Full Size VP8 Video (8.07 MB)</span></li><li><a href="http://media.railscasts.com/assets/episodes/videos/312-sending-html-email.ogv">ogv</a><span class="overlay">Full Size Theora Video (23.3 MB)</span></li>
+        </ul>
+      <div class="clear"></div>
+</div>    <ul class="nav horizontal"><li class="selected"><a href="/episodes/312-sending-html-email" class="selected tab">Show Notes</a></li><li><a href="/episodes/312-sending-html-email?view=asciicast" class="tab">ASCIIcast</a></li><li><a href="/episodes/312-sending-html-email?view=comments" class="tab">20 Comments</a></li><li><a href="/episodes/312-sending-html-email?view=similar" class="tab">Similar Episodes</a></li><li class="next"><a href="/episodes/313-receiving-email-with-mailman">Next Episode &gt;</a></li><li class="previous"><a href="/episodes/164-cron-in-ruby-revised">&lt; Previous Episode</a></li></ul>
+    <div class="nav_section">
+      <div class="inner">
+  <div class="extra_nav">
+      <span class="browse_code">
+        <img alt="Browse_code" class="icon" height="21" src="/assets/icons/browse_code-b10fbdd9228fe0070ff9c2362fe59b34.png" width="22" />
+        <a href="https://github.com/railscasts/312-sending-html-email">Browse Source Code</a>
+      </span>
+  </div>
+
+  <div class="show_notes">
+    <p><strong>Resources</strong></p>
+
+<ul>
+<li><a href="http://net.tutsplus.com/tutorials/html-css-techniques/20-email-design-best-practices-and-resources-for-beginners/">20 Email Design Best Practices and Resources</a></li>
+<li><a href="http://beaker.mailchimp.com/inline-css">Automatic CSS Inliner Tool</a></li>
+<li><a href="https://github.com/fphilipe/premailer-rails3">Premailer Rails 3</a></li>
+<li><a href="https://github.com/Mange/roadie">Roadie</a></li>
+</ul>
+
+      <div class="code_block">
+        <div class="code_header">
+          terminal
+        </div>
+        <div class="CodeRay">
+  <div class="code"><pre>rails new mailit
+cd mailit
+rails g mailer newsletter_mailer weekly
+bundle
+rails c</pre></div>
+</div>
+
+      </div>
+
+
+      <div class="code_block">
+        <div class="code_header">
+          Gemfile
+        </div>
+        <div class="CodeRay">
+  <div class="code"><pre>gem <span class="s"><span class="dl">'</span><span class="k">roadie</span><span class="dl">'</span></span>
+
+<span class="c"># or</span>
+
+gem <span class="s"><span class="dl">'</span><span class="k">hpricot</span><span class="dl">'</span></span>
+gem <span class="s"><span class="dl">'</span><span class="k">premailer-rails3</span><span class="dl">'</span></span></pre></div>
+</div>
+
+      </div>
+
+
+      <div class="code_block">
+        <div class="code_header">
+          app/mailers/newsletter_mailer.rb
+        </div>
+        <div class="CodeRay">
+  <div class="code"><pre><span class="r">def</span> <span class="fu">weekly</span>(email)
+  mail <span class="sy">to:</span> email, <span class="sy">subject:</span> <span class="s"><span class="dl">&quot;</span><span class="k">RailsCasts Weekly</span><span class="dl">&quot;</span></span>
+<span class="r">end</span></pre></div>
+</div>
+
+      </div>
+
+
+      <div class="code_block">
+        <div class="code_header">
+          config/environments/development.rb
+        </div>
+        <div class="CodeRay">
+  <div class="code"><pre>config.action_mailer.default_url_options = { <span class="sy">host:</span> <span class="s"><span class="dl">&quot;</span><span class="k">railscasts.com</span><span class="dl">&quot;</span></span> }
+config.action_mailer.raise_delivery_errors = <span class="pc">true</span>
+config.action_mailer.delivery_method = <span class="sy">:smtp</span>
+config.action_mailer.smtp_settings = {
+  <span class="sy">address:</span> <span class="s"><span class="dl">&quot;</span><span class="k">smtp.gmail.com</span><span class="dl">&quot;</span></span>,
+  <span class="sy">port:</span> <span class="i">587</span>,
+  <span class="sy">domain:</span> <span class="s"><span class="dl">&quot;</span><span class="k">railscasts.com</span><span class="dl">&quot;</span></span>,
+  <span class="sy">authentication:</span> <span class="s"><span class="dl">&quot;</span><span class="k">plain</span><span class="dl">&quot;</span></span>,
+  <span class="sy">enable_starttls_auto:</span> <span class="pc">true</span>,
+  <span class="sy">user_name:</span> <span class="co">ENV</span>[<span class="s"><span class="dl">&quot;</span><span class="k">GMAIL_USERNAME</span><span class="dl">&quot;</span></span>],
+  <span class="sy">password:</span> <span class="co">ENV</span>[<span class="s"><span class="dl">&quot;</span><span class="k">GMAIL_PASSWORD</span><span class="dl">&quot;</span></span>]
+}</pre></div>
+</div>
+
+      </div>
+
+
+      <div class="code_block">
+        <div class="code_header">
+          rails console
+        </div>
+        <div class="CodeRay">
+  <div class="code"><pre><span class="co">NewsletterMailer</span>.weekly(<span class="s"><span class="dl">&quot;</span><span class="k">foo@example.com</span><span class="dl">&quot;</span></span>).deliver</pre></div>
+</div>
+
+      </div>
+
+
+  </div>
+</div>
+      <div class="progress" style="display: none"><img alt="loading" src="/assets/progress_large-b0fa49d32dce1cea0e4f9c082c1fa5f5.gif" /></div>
+    </div>
+</div>
+    </div>
+    <div id="footer">
+      <div class="inner">
+        &copy;2013 RailsCasts - <a href="/privacy">Privacy Policy</a> - Hosted by <a href="https://www.digitalocean.com/?utm_source=railscasts.com">Digital Ocean</a>
+      </div>
+    </div>
+
+      <!-- Google Analytics -->
+      <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7696481-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      </script>
+  </body>
+</html>

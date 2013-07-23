@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(params_permission)
 
     if @user.save
-      redirect_to( users_path, :notice => "Record saved successfully.")
+      redirect_to users_thank_you_path
     else  
       render :action => "new"
     end  
@@ -19,8 +19,32 @@ class UsersController < ApplicationController
   end
 
   def login
+
+    if params[:login].present?
+
+      user = User.authenticate(params[:username],params[:password])
+      notice = ""      
+
+      if !user.blank?
+        if user.verified_tour.nil?
+          notice = "Your account still not verified"          
+        else
+          session[:user_id] = user.id
+          session[:user_name] = user.name
+          session[:user_email] = user.email_id          
+          redirect_to tours_path, :notice => "#{notice}"          
+        end
+      else 
+        notice = "Invalid login!!!"  
+        redirect_to users_login_path, :notice => "#{notice}"
+      end
+      
+    end
+
   end
-  
+
+  def thank_you
+  end
 
   private
   def params_permission

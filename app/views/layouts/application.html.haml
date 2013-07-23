@@ -11,19 +11,25 @@
     = csrf_meta_tags
 
   %body
-    -if 1 == 2
-      .navbar.navbar-fixed-top
-        .navbar-inner
-          .container
-            %ul.nav.nav-pills
-              %li
-                %a.brand{:href => '/'} Admin
-              %li
-                %a{:href => "#"} Tour
-              %li
-                %a{:href => '#'} Company
-              %li
-                %a{:href => '#'} Why Jekyll?
+    -if !session[:user_id].blank?
+      .container
+        .row{:style=>"margin-top:45px"}
+          .navbar.navbar-fixed-top
+            .navbar-inner
+              .container
+                %ul.nav.nav-pills
+                  %li
+                    %a.brand{:href => '#'} 
+                      = session[:user_name]
+                  %li.divider-vertical                    |
+                  %li
+                    %a{:href => "tours"} Create Tour
+                  %li.divider-vertical  
+                  %li
+                    %a{:href => '#'} Settings
+                  %li.divider-vertical                                
+                  %li
+                    %a{:href => 'tours/logout'} Logout
     -else
       .container
         .row

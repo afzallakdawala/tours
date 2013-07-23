@@ -12,6 +12,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem "haml-rails"
 gem 'devise', '3.0.0.rc'
+gem "bcrypt-ruby", :require => "bcrypt"
+gem "will_paginate"
+
 
 group :development do
   gem "better_errors"
@@ -22,6 +25,3 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'

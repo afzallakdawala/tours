@@ -1,0 +1,45 @@
+.container
+  .row
+    .span6
+      = form_tag(@tours, :class => "navbar-search", :method => 'get') do
+        %table.table.table-bordered
+          %td
+            = text_field_tag :search, params[:search], :class => "search-query span3", :placeholder => "Search"
+          %td 
+            = submit_tag "Search", :class => "btn btn-meduim btn-info", :name => nil  
+  .row      
+    .span12  
+      %p#notice
+        = notice      
+      %table.table.table-hover
+        %tr
+          %th
+            Type
+          %th
+            Depature date
+          %th
+            No. days
+          %th
+            About tours
+          %th
+            Status
+          %th
+            = link_to "Add", new_tour_path, :class => "btn btn-success"
+        - @tours.each if !@tours.nil? do |tour| 
+          %tr
+            %td
+              = tour.type
+            %td
+              = tour.depature_date
+            %td
+              = tour_days
+            %td
+              = tour.about
+            %td
+              //= operator.mobile
+            %td
+              = link_to "Edit", edit_tour_path(tour), :class => "btn btn-primary" 
+            
+      .pagination
+        = will_paginate @tours if !@tour.nil?
+               
