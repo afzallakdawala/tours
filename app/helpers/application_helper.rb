@@ -12,4 +12,14 @@ module ApplicationHelper
     
   end
 
+  def getAllToursType
+    tours = []    
+    tours = tours << ["Haj",1]
+    tours = tours << ["Umrah",2]
+    tours = tours << ["Ziyarat",3]
+
+    return tours
+
+  end
+
 end

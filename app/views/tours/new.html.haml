@@ -5,122 +5,58 @@
         .thumbnail
           .well
             %i.icon-lock.icon-large
-            %strong Tour Operator Sign Up, its free
+            %strong Create your upcomming tour
 
-          = form_for(@user) do |f|
-            - if @user.errors.any?
-              - @user.errors.full_messages.each do |msg|  
+          = form_for(@tour) do |f|
+            - if @tour.errors.any?
+              - @tour.errors.full_messages.each do |msg|  
                 .alert.alert-error
                   %button.close{ "data-dismiss" => "alert" }x
                   = msg     
 
             %table.table
               %th
-                Tour name
+                Type
               %td
-                .input-append
-                  =f.text_field :name, placeholder: 'Tour name', :class=>"span4"
+                =f.hidden_field :tour_id, :value=>session[:user_id]
+                .input-append                  
+                  =f.select :type, getAllToursType, :class => "span2"
                   %span.add-on
-                    %i.icon-user                
+                    %i.icon-star                
               %tr      
                 %th
-                  Office Address
+                  Depature date
                 %td
                   .input-append
-                    =f.text_area :address, :class => "span4"
+                    =f.date_field :depature_date, :class => "span2"
                     %span.add-on
-                      %i.icon-map-marker.icon-large
+                      %i.icon-calendar.icon-large
               %tr      
                 %th
-                  Country
+                  No. days
                 %td
                   .input-append
-                    =f.text_field :country, placeholder: 'Which contry its situated', :class=>"span2"
+                    =f.number_field :days, placeholder: 'Days', :class=>"span1"
                     %span.add-on
-                      %i.icon-map-marker.icon-large
+                      %i.icon-time.icon-large
 
               %tr      
                 %th
-                  City
+                  About 
                 %td
                   .input-append
-                    =f.text_field :city, placeholder: 'Belongs to which city', :class=>"span2"
+                    =f.text_area :about, :class => "span4" 
                     %span.add-on
-                      %i.icon-map-marker.icon-large
+                      %i.icon-comment.icon-large
               %tr      
                 %th
-                  Telephone 
+                  Availability 
                 %td
                   .input-append
-                    =f.telephone_field :tel, placeholder: 'Office Landline no.', :class=>"span4"
+                    =f.number_field :available, placeholder: 'Availability', :class=>"span1"
                     %span.add-on
-                      %i.icon-bell
-              %tr      
-                %th
-                  Mobile
-                %td
-                  .input-append
-                    =f.telephone_field :mobile, :value =>"+91 ", placeholder: 'Mobile no.', :class=>"span2"
-                    %span.add-on
-                      %i.icon-headphones
-              %tr      
-                %th
-                  Email-id
-                %td
-                  .input-append
-                    =f.text_field :email_id, placeholder: 'Company Email-id', :class=>"span3"
-                    %span.add-on
-                      %i.icon-envelope
-
-              %tr
-                %th
-                  Password
-                %td
-                  .input-append
-                    = f.password_field :password, placeholder: 'Password', :class=>"span3"
-                    %span.add-on
-                      %i.icon-lock                  
+                      %i.icon-fire
               %tr
                 %th
                 %td
-                  = submit_tag "Sign UP", :name => 'view', :class => 'btn btn-primary'
-      .span5
-        .alert.alert-info
-          %h4
-            %i.icon-bullhorn.icon-large 
-            How to sign UP?
-        %ul
-          %li
-            %span.label.label-success Tour name:
-            Name of your company/tour name, Which Haji or people knows by you.
-          %li
-            %span.label.label-success Office Address:
-            Where yours office located with area, So haji will easily find your place.
-          %li
-            %span.label.label-success Country:
-            It will diffrentiate in which country your tour is located as its international portal.
-          %li
-            %span.label.label-success City:
-            It help easy to search your office in which city its located.
-          %li
-            %span.label.label-success Telephone:
-            Provide us your valid telephone no. where haji can easily contact you.
-          %li
-            %span.label.label-success Mobile:
-            Provide us your valid mobile no. with your country code, where haji can easily contact you or message you.
-          %li
-            %span.label.label-important Email-id:
-            Provide us your valid Email-id where we can send you a enquiry about Haj, Umrah, Ziyarat which haji wants or need. With help of email-id you can login and create your upcomming tours.
-          %li
-            %span.label.label-important Password:
-            Add strong password more than 6 characters.
-            
-
-
-
-
-
-
-
-
-
+                  = f.submit :class => "btn btn-primary"
