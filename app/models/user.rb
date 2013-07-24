@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
-  validates_presence_of :name, :address, :country, :city, :tel, :mobile, :email_id, :password
+  validates_presence_of :name, :address, :country, :city, :tel, :mobile, :email_id
+  validates :password, :presence => {:on => :create}, :confirmation => true, :length => { :minimum => 6}
   validates_format_of :email_id, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates_uniqueness_of :name, :case_sensitive => false
   validates_uniqueness_of :email_id, :case_sensitive => false

@@ -9,22 +9,22 @@
               Haj, Umrah, Ziyarat Search - 
               = Time.now.year
 
-          = form_tag('/home/search_tours') do
+          = form_tag(tours_search_path) do
             %table.table
               %th
                 Looking for
               %td
-                = radio_button("search", "pilgirm", 1)
+                = radio_button("search", "pilgirm_type", 1, :required => true)
                 %strong Haj
-                = radio_button("search", "pilgirm", 2)
+                = radio_button("search", "pilgirm_type", 2, :required => true)
                 %strong Umrah
-                = radio_button("search", "pilgirm", 3)
+                = radio_button("search", "pilgirm_type", 3, :required => true)
                 %strong Ziyarat
               %tr
                 %th
                   When on
                 %td
-                  = select_tag :months, options_for_select(getAllMonthsName),:prompt => 'Select'  
+                  = select_tag :months, options_for_select(getAllMonthsName),:prompt => 'Select', :required => true  
 
               %tr
                 %th

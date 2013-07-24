@@ -1,18 +1,12 @@
-Tours::Application.routes.draw do
-  
-
-  get "admin_tour/index"
+Tours::Application.routes.draw do  
 
   get "users/login"
   post "users/login"
-
-  get "tours/logout"
-
   get "users/thank_you"
 
-    
-  get "home/search_tours"    
-  post "home/search_tours"  
+  get "tours/logout"
+  get "tours/search"    
+  post "tours/search"    
 
   root :to => "home#index"
 

@@ -21,19 +21,38 @@ class ToursController < ApplicationController
   end
 
   def edit
-    @tour = Tour.find_by_id_and_tour_id(params[:id],session[:user_id])
-    
+    @tour = Tour.find_by_id_and_tour_id(params[:id],session[:user_id])    
     if @tour.nil?
       redirect_to new_tour_path
     end
+  end
 
+  def update
+    @tour = Tour.find_by_id_and_tour_id(params[:id],session[:user_id])    
+    if @tour.update_attributes(params_permission)
+      redirect_to tours_path, :notice => "Record successfully updated."
+    else
+      render :action => "edit"
+    end
   end
 
   def show
     
   end
 
-  def dashboard
+  def search
+
+    if params[:view].present?
+      
+      pilgrim_type = params[:pilgrim_type]
+      month = params[:months]
+
+      @alltours = Tour.getAllAvailableTours(pilgrim_type,month)
+      @alltours += params
+
+      render "search_preview"
+    end
+
   end
 
   def logout

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params_permission)
-
+    
     if @user.save
       redirect_to users_thank_you_path
     else  
@@ -17,6 +17,24 @@ class UsersController < ApplicationController
     end  
 
   end
+
+  def edit
+    @user = User.find(session[:user_id])    
+    if @user.nil?
+      redirect_to tours_path
+    end
+
+  end
+
+  def update
+    @user = User.find(session[:user_id])    
+    if @user.update_attributes(params_permission)
+      redirect_to tours_path, :notice => "Setting has been changed successfully"
+    else
+      render :action => "edit"
+    end
+  end
+
 
   def login
 
