@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130723110609) do
+ActiveRecord::Schema.define(version: 20130724071614) do
 
   create_table "tests", force: true do |t|
     t.datetime "created_at"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20130723110609) do
     t.integer  "available"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "type"
+    t.integer  "pilgrim_type",  default: 0, null: false
     t.date     "depature_date"
     t.integer  "days"
+    t.integer  "status",        default: 0, null: false
+    t.integer  "amount",        default: 0, null: false
   end
 
   create_table "users", force: true do |t|

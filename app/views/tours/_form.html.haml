@@ -1,0 +1,70 @@
+%hr
+  .container
+    .row
+      .span7
+        .thumbnail
+          .well
+            %i.icon-lock.icon-large
+            %strong Create your upcomming tour
+
+          = form_for(@tour) do |f|
+            - if @tour.errors.any?
+              - @tour.errors.full_messages.each do |msg|  
+                .alert.alert-error
+                  %button.close{ "data-dismiss" => "alert" }x
+                  = msg     
+
+            %table.table
+              %th
+                Type
+              %td
+                =f.hidden_field :tour_id, :value=>session[:user_id]
+                .input-append        
+                  =f.select :pilgrim_type, getAllToursType, :class => "span2"
+                  %span.add-on
+                    %i.icon-star                
+              %tr      
+                %th
+                  Depature date
+                %td
+                  .input-append
+                    =f.date_field :depature_date, :class => "span2"
+                    %span.add-on
+                      %i.icon-calendar.icon-large
+              %tr      
+                %th
+                  No. days
+                %td
+                  .input-append
+                    =f.number_field :days, placeholder: 'Days', :class=>"span1"
+                    %span.add-on
+                      %i.icon-time.icon-large
+
+              %tr      
+                %th
+                  Tour Amount
+                %td
+                  .input-append
+                    =f.number_field :amount, placeholder: 'Amount', :class=>"span2"
+                    %span.add-on
+                      0.00
+              %tr      
+                %th
+                  About 
+                %td
+                  .input-append
+                    =f.text_area :about, :class => "span4" 
+                    %span.add-on
+                      %i.icon-comment.icon-large
+              %tr      
+                %th
+                  Availability 
+                %td
+                  .input-append
+                    =f.number_field :available, placeholder: 'Availability', :class=>"span1"
+                    %span.add-on
+                      %i.icon-fire
+              %tr
+                %th
+                %td
+                  = f.submit :class => "btn btn-primary"

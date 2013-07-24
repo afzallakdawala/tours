@@ -1,9 +1,9 @@
 class Tour < ActiveRecord::Base
 
-  validates_presence_of :depature_date, :days, :about, :available
+  validates_presence_of :depature_date, :days, :about, :available, :pilgrim_type
 
   def self.search(page,tour_id)
-    paginate :per_page => 5, :page => page,
+    paginate :per_page => 20, :page => page,
              :conditions => ["tour_id =  #{tour_id}"]
 
            
