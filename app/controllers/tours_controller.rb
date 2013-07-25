@@ -47,9 +47,8 @@ class ToursController < ApplicationController
       pilgrim_type = params[:pilgrim_type]
       month = params[:months]
 
-      @alltours = Tour.getAllAvailableTours(pilgrim_type,month)
-      @alltours += params
-
+      @alltours = Tour.getAllAvailableTours(pilgrim_type,month)     
+      
       render "search_preview"
     end
 

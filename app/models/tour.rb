@@ -7,20 +7,18 @@ class Tour < ActiveRecord::Base
              :conditions => ["tour_id =  #{tour_id}"]               
   end
 
-  def self.getAllAvailableTours(pilgrim_type.to_s, month)
-    availability = Tour.joins("INNER JOIN users ON tours.tour_id = users.id").
-                    select('tours.*, users.id as user_id').
-                    where("users.verified_tour = '1' and tours.status = '1' and
-                           tours.pilgrim_type = '#{pilgrim_type}'  ")
-    return availability      
-    # 
-    #                         and
-    #                        month(depature_date) = #{month}
+  def self.getAllAvailableTours(pilgrim_type, month)
 
-    # , users.name as operator_name, users.address
-    #                 as operator_address, user.country as operator_country, users.city as operator_city,
-    #                 users.tel as operator_tel, users.mobile as operator_mobile, users.email_id as 
-    #                 operator_email_id
+    availability = Tour.joins("INNER JOIN users ON tours.tour_id = users.id").
+                    select('tours.*, users.id as tour_id, users.name as tour_name,
+                            users.address as tour_address, users.city as tour_city,
+                            users.tel as tour_tel, users.country as tour_country, 
+                            users.mobile as tour_mobile, users.email_id as tour_email_id ')
+                    # where("users.verified_tour = '1' and tours.status = '1' and
+                    #        tours.pilgrim_type = '#{pilgrim_type}' and
+                    #        month(depature_date) = #{month}   ")
+    return availability
+
   end
 
 

@@ -6,8 +6,18 @@
           .well
             %i.icon-list-alt.icon-large
             %strong We found
-            %span.badge.badge-important 6            
-            %strong Tours and travel operator for haj,ziyarat,umrah
+            %span.badge.badge-important
+              = @alltours.count
+            %strong
+              Tours and travel operator for
+              -if @alltours[0].pilgrim_type == 1 
+                Haj  
+              -elsif @alltours[0].pilgrim_type == 2 
+                Umrah
+              -elsif @alltours[0].pilgrim_type == 3
+                Ziyarat
+              -else
+                **Invalid input**
 
           %table.table.table-bordered
             %th
@@ -21,8 +31,40 @@
             %th
               Contact no.                
             %th              
-              No. days
+              Period
             %th
               Depature
             %th
               Availibility
+            - @alltours.each  do |tour| 
+              %tr
+                %td
+                  %a{:href=> '#', :class=>'btn btn-info'} Send enquiry
+                %td
+                  = tour.tour_name
+                %td
+                  = tour.tour_address
+                %td
+                  = tour.tour_city + "-" + tour.tour_country                                   
+                %td
+                  = tour.tour_tel
+                  %br
+                  = tour.tour_mobile
+                %td
+                  = tour.days
+                %td
+                  = tour.depature_date.strftime("%a %d-%B-%Y")  
+                %td
+                  - if tour.available > 0 
+                    %span.badge.badge-success
+                      = tour.available
+                  -else
+                    %span.badge.badge-success
+                      = tour.available
+                        
+
+
+
+
+
+                
