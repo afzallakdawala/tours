@@ -10,26 +10,18 @@
               = @alltours.count
             %strong
               Tours and travel operator for
-              -if @alltours[0].pilgrim_type == 1 
-                Haj  
-              -elsif @alltours[0].pilgrim_type == 2 
-                Umrah
-              -elsif @alltours[0].pilgrim_type == 3
-                Ziyarat
-              -else
-                **Invalid input**
+              = @pilgrim_type_name
 
           %table.table.table-bordered
             %th
-              ='#'
             %th
-              Tour operator
+              Tour 
             %th
               Address
             %th
-              City
-            %th
               Contact no.                
+            %th              
+              Amount
             %th              
               Period
             %th
@@ -41,15 +33,20 @@
                 %td
                   %a{:href=> '#', :class=>'btn btn-info'} Send enquiry
                 %td
+                  = tour.id
+                %td
                   = tour.tour_name
                 %td
                   = tour.tour_address
-                %td
-                  = tour.tour_city + "-" + tour.tour_country                                   
+                  %br
+                  %strong
+                    = tour.tour_city + "-" + tour.tour_country  
                 %td
                   = tour.tour_tel
                   %br
                   = tour.tour_mobile
+                %td
+                  = tour.amount
                 %td
                   = tour.days
                 %td

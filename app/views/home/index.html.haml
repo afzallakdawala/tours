@@ -9,16 +9,16 @@
               Haj, Umrah, Ziyarat Search - 
               = Time.now.year
 
-          = form_tag(tours_search_path) do
+          = form_tag(tours_search_path, :method=> 'get') do
             %table.table
               %th
                 Looking for
               %td
-                = radio_button("search", "pilgirm_type", 1, :required => true)
+                = radio_button("search", "pilgrim_type", 1, :required => true)
                 %strong Haj
-                = radio_button("search", "pilgirm_type", 2, :required => true)
+                = radio_button("search", "pilgrim_type", 2, :required => true)
                 %strong Umrah
-                = radio_button("search", "pilgirm_type", 3, :required => true)
+                = radio_button("search", "pilgrim_type", 3, :required => true)
                 %strong Ziyarat
               %tr
                 %th

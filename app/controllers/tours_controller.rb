@@ -43,11 +43,22 @@ class ToursController < ApplicationController
   def search
 
     if params[:view].present?
-      
-      pilgrim_type = params[:pilgrim_type]
+
+      pilgrim_type = params[:search][:pilgrim_type]
       month = params[:months]
 
-      @alltours = Tour.getAllAvailableTours(pilgrim_type,month)     
+      if pilgrim_type == 1 
+        @pilgrim_type_name = "Haj"
+      elsif
+        pilgrim_type == 2 
+        @pilgrim_type_name = "Umrah"
+      elsif pilgrim_type == 3
+        @pilgrim_type_name = "Ziyarat"
+      else
+        @pilgrim_type_name = "**Invalid input**"
+      end  
+
+      @alltours = Tour.getAllAvailableTours(pilgrim_type,month)         
       
       render "search_preview"
     end

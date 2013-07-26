@@ -13,11 +13,12 @@ class Tour < ActiveRecord::Base
                     select('tours.*, users.id as tour_id, users.name as tour_name,
                             users.address as tour_address, users.city as tour_city,
                             users.tel as tour_tel, users.country as tour_country, 
-                            users.mobile as tour_mobile, users.email_id as tour_email_id ')
+                            users.mobile as tour_mobile, users.email_id as tour_email_id ').
+                     where("users.verified_tour = '1' and tours.status = '1' ")
                     # where("users.verified_tour = '1' and tours.status = '1' and
                     #        tours.pilgrim_type = '#{pilgrim_type}' and
                     #        month(depature_date) = #{month}   ")
-    return availability
+      return availability
 
   end
 
