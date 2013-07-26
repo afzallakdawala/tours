@@ -9,21 +9,21 @@
       %table.table.table-hover.table-bordered
         %tr
           %th
-            Type
+            = sortable "pilgrim_type"
           %th
-            Depature date
+            = sortable "depature_date"  
           %th
-            No. days
+            = sortable "days"  
           %th
-            Amount
+            = sortable  "amount" 
           %th          
-            About tours
+            = sortable "about"
           %th
-            Availibility
+            = sortable "available"  
           %th
-            Status
+            = sortable  "status"  
           %th
-            = link_to "Add", new_tour_path, :class => "btn btn-success"
+            = link_to  "Add", new_tour_path, :class => "btn btn-success"
         - if @tours    
           - @tours.each  do |tour| 
             %tr
@@ -48,11 +48,16 @@
               %td
                 = tour.available              
               %td
-                -if tour.status <= 0
+                -if tour.depature_date < Time.now()  
+                  %span.label.label-warning Booking closed
+                -elsif tour.status <= 0 && tour.depature_date > Time.now()                
                   %span.label.label-important Pending
-                -else
+                -elsif tour.status > 0 && tour.depature_date > Time.now()                
                   %span.label.label-success Running     
-              //= operator.mobile
+                -else
+                  %span.label.label.inverse Update your tours
+
+                //= operator.mobile
               %td
                 = link_to "Edit", edit_tour_path(tour), :class => "btn btn-primary" 
               

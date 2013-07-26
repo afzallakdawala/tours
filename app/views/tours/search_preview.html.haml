@@ -10,8 +10,8 @@
               = @alltours.count
             %strong
               Tours and travel operator for
-              = @pilgrim_type_name
-
+              %span.label.label-success
+                = @pilgrim_type_name
           %table.table.table-bordered
             %th
             %th
@@ -32,8 +32,6 @@
               %tr
                 %td
                   %a{:href=> '#', :class=>'btn btn-info'} Send enquiry
-                %td
-                  = tour.id
                 %td
                   = tour.tour_name
                 %td

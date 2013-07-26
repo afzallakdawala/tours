@@ -14,7 +14,7 @@
               %th
                 Looking for
               %td
-                = radio_button("search", "pilgrim_type", 1, :required => true)
+                = radio_button("search", "pilgrim_type", 1, :required => true, :checked => true)
                 %strong Haj
                 = radio_button("search", "pilgrim_type", 2, :required => true)
                 %strong Umrah
@@ -28,8 +28,10 @@
 
               %tr
                 %th
-                  From
+                  From City
                 %td
+                  = text_field_tag :tag, :input_html => { :'data-provide' => "typeahead", :'data-source' => '["hello", "hellow", "heaven", "helo", "herr"]' }
+
                   = select_tag :operator_id, options_for_select([['Mumbai',"mumbai"], ['Bangalore', 2]]),:prompt => 'Select'  
                   (optional)
               %tr

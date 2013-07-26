@@ -1,8 +1,9 @@
 class ToursController < ApplicationController
   
-  def index
-    @tours = Tour.search(params[:page],session[:user_id])
+  helper_method :sort_column, :sort_direction
 
+  def index
+    @tours = Tour.search(params[:page],session[:user_id]).order(sort_column + " " + sort_direction)
   end
 
   def new
@@ -47,18 +48,18 @@ class ToursController < ApplicationController
       pilgrim_type = params[:search][:pilgrim_type]
       month = params[:months]
 
-      if pilgrim_type == 1 
+      if pilgrim_type == "1"
         @pilgrim_type_name = "Haj"
       elsif
-        pilgrim_type == 2 
+        pilgrim_type == "2" 
         @pilgrim_type_name = "Umrah"
-      elsif pilgrim_type == 3
+      elsif pilgrim_type == "3"
         @pilgrim_type_name = "Ziyarat"
       else
         @pilgrim_type_name = "**Invalid input**"
       end  
 
-      @alltours = Tour.getAllAvailableTours(pilgrim_type,month)         
+      @alltours = Tour.getAllAvailableTours(pilgrim_type,month, sort_table = params[:sort])         
       
       render "search_preview"
     end
@@ -76,6 +77,14 @@ class ToursController < ApplicationController
   def params_permission
     params.require(:tour).permit(:depature_date, :days, :about, :available, :tour_id, :pilgrim_type, :amount)
   end
+  
+  def sort_column
+    Tour.column_names.include?(params[:sort]) ? params[:sort] : "id"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end  
 
 
 end
