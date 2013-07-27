@@ -73,6 +73,11 @@ class ToursController < ApplicationController
     redirect_to root_url
   end
 
+  def admin_tours
+    @tours = Tour.getAllTourByStatus(0, params[:sort])
+  end
+
+
   private
   def params_permission
     params.require(:tour).permit(:depature_date, :days, :about, :available, :tour_id, :pilgrim_type, :amount)
@@ -84,6 +89,12 @@ class ToursController < ApplicationController
   
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end  
+
+  def admin_access
+    if !session[:admin_id].present?
+      redirect_to root_url, :notice => 'Invalid access'
+    end
   end  
 
 

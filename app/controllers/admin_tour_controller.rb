@@ -1,7 +1,7 @@
 class AdminTourController < ApplicationController
 
   def index
-    #@operators = Operator.search(params[:search], params[:page])
+    @tours = Tour.getAllTourByStatus(0)
   end
 
   def new

@@ -1,0 +1,61 @@
+.container
+  .row      
+    .span12  
+      - if !notice.blank?
+        .alert.alert-info
+          %button.close{ "data-dismiss" => "alert" }x
+          =notice
+      %h1 All - Non-Active Tours
+      %table.table.table-hover.table-bordered
+        %tr
+          %th
+            = sortable "id" 
+          %th
+            = sortable "pilgrim_type", "Pilgrim"  
+          %th
+            = sortable "depature_date", "Depature"  
+          %th
+            = sortable "tour_id", "Tour"  
+          %th
+            = sortable "days"  
+          %th
+            = sortable  "amount" 
+          %th          
+            = sortable "about"
+          %th
+            = sortable "available"  
+          %th
+            
+        - if @tours    
+          - @tours.each  do |tour| 
+            %tr
+              %td
+                = tour.id
+              %td
+                %strong
+                  -if tour.pilgrim_type == 1 
+                    Haj  
+                  -elsif tour.pilgrim_type == 2 
+                    Umrah
+                  -elsif tour.pilgrim_type == 3
+                    Ziyarat
+                  -else
+                    **Invalid input**
+              %td
+                = tour.depature_date.strftime("%a %d-%B-%Y")
+              %td
+                = tour.tour_name
+              %td
+                = tour.days
+              %td
+                = tour.amount
+              %td
+                = tour.about
+              %td
+                = tour.available              
+              %td                
+                = link_to "Approve", edit_tour_path(tour), :class => "btn btn-warning", :confirm => 'Are you sure?' 
+              %td  
+                = link_to "Destroy", edit_tour_path(tour), :class => "btn btn-danger", :confirm => 'Are you sure?', :method => :delete 
+              
+                 

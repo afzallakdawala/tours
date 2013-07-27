@@ -30,9 +30,7 @@
                 %th
                   From City
                 %td
-                  = text_field_tag :tag, :input_html => { :'data-provide' => "typeahead", :'data-source' => '["hello", "hellow", "heaven", "helo", "herr"]' }
-
-                  = select_tag :operator_id, options_for_select([['Mumbai',"mumbai"], ['Bangalore', 2]]),:prompt => 'Select'  
+                  = text_field_tag :tag, nil, :'data-provide' => "typeahead", :'data-source' => '["hello", "hellow", "heaven", "helo", "herr"]' 
                   (optional)
               %tr
                 %th

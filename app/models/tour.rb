@@ -25,5 +25,22 @@ class Tour < ActiveRecord::Base
 
   end
 
+  def self.getAllTourByStatus(status = 0, sort_table = nil)
+
+    if sort_table.nil?
+      sort_table = "depature_date"  
+    end
+
+    all_status = Tour.joins("INNER JOIN users ON tours.tour_id = users.id").
+                    select('tours.*, users.id as tour_id, users.name as tour_name,
+                            users.address as tour_address, users.city as tour_city,
+                            users.tel as tour_tel, users.country as tour_country, 
+                            users.mobile as tour_mobile, users.email_id as tour_email_id ').
+                     where("users.verified_tour = '1' and tours.status = #{status} ").
+                     order("depature_date").order(sort_table)
+
+    return all_status 
+  end
+
 
 end

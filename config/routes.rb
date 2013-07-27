@@ -8,6 +8,8 @@ Tours::Application.routes.draw do
   get "tours/search"    
   post "tours/search"    
 
+  get "tours/admin_tours"
+
   root :to => "home#index"
 
   resources :home, :users, :tours
