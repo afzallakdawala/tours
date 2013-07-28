@@ -9,6 +9,6 @@ class UserMailer < ActionMailer::Base
   def registration(email_id)
     @greeting = "Hiddd"
 
-    mail to: "#{email_id}", subject: => "test"
+    mail to: => "#{email_id}", subject: => "test"
   end
 end
