@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130724094424) do
+ActiveRecord::Schema.define(version: 20130727100954) do
 
   create_table "tests", force: true do |t|
     t.datetime "created_at"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20130724094424) do
     t.string   "password_hash"
     t.string   "password_salt"
     t.string   "password"
+    t.integer  "admin",         default: 0, null: false
   end
 
 end

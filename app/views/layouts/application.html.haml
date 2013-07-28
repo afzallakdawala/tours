@@ -26,8 +26,11 @@
                     %a{:href => tours_path} Create Tour
                   %li.divider-vertical  
                   %li
-                    %a{:href => edit_user_path(session[:user_id])} Settings
+                    %a{:href => edit_user_path(session[:user_id])} Settings                    
                   %li.divider-vertical                                
+                  %li                    
+                    %a{:href => tours_admin_path} Admin Access
+                  %li.divider-vertical                    
                   %li
                     %a{:href => tours_logout_path} Logout
     -else

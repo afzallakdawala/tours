@@ -37,9 +37,25 @@ class ToursController < ApplicationController
     end
   end
 
-  def show
-    
+  def approve
+
+    admin_access
+
+    tour = Tour.find(params[:id])
+    tour.status = 1
+    tour.save!
+
+    redirect_to tours_admin_tours_path, :notice => "successfully approved tour"
   end
+
+
+  def destroy
+    admin_access
+    @tour = Tour.find(params[:id])
+    @tour.delete
+    redirect_to tours_admin_tours_path, :notice => "Entry deleted successfully"    
+  end
+
 
   def search
 
@@ -70,10 +86,12 @@ class ToursController < ApplicationController
     session[:user_id] = nil
     session[:user_name] = nil
     session[:user_email] = nil
+    session[:user_admin] = nil
     redirect_to root_url
   end
 
-  def admin_tours
+  def admin
+    admin_access
     @tours = Tour.getAllTourByStatus(0, params[:sort])
   end
 
@@ -92,8 +110,8 @@ class ToursController < ApplicationController
   end  
 
   def admin_access
-    if !session[:admin_id].present?
-      redirect_to root_url, :notice => 'Invalid access'
+    if !session[:user_admin].present?
+      redirect_to root_url
     end
   end  
 

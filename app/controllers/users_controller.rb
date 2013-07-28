@@ -49,7 +49,10 @@ class UsersController < ApplicationController
         else
           session[:user_id] = user.id
           session[:user_name] = user.name
-          session[:user_email] = user.email_id          
+          session[:user_email] = user.email_id
+          if user.admin > 0
+            session[:user_admin] = user.admin
+          end
           redirect_to tours_path, :notice => "#{notice}"          
         end
       else 

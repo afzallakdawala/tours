@@ -8,7 +8,8 @@ Tours::Application.routes.draw do
   get "tours/search"    
   post "tours/search"    
 
-  get "tours/admin_tours"
+  get "tours/admin"
+  match "tours/:id/approve" => 'tours#approve', :via => :get, :as => :tour_approve
 
   root :to => "home#index"
 
