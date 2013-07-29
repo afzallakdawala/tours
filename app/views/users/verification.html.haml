@@ -1,0 +1,46 @@
+.container
+  .row      
+    .span12 
+      - if !notice.blank?
+        .alert.alert-info
+          %button.close{ "data-dismiss" => "alert" }x
+          =notice
+      %h1 All - Non-Active Tour Operators
+      %table.table.table-hover.table-bordered
+        %tr
+          %th
+            id
+          %th
+            Name
+          %th
+            Address
+          %th
+            City
+          %th
+            Tel
+          %th
+            Mobile
+          %th          
+            Email
+          %th
+            
+        - if @users    
+          - @users.each  do |user| 
+            %tr
+              %td
+                = user.id
+              %td
+                = user.name
+              %td
+                = user.address
+              %td
+                = user.city
+              %td
+                = user.tel
+              %td
+                = user.mobile
+              %td
+                = user.email_id
+              %td                
+                = link_to "Approve", user_approve_path(user), :class => "btn btn-warning", :confirm => 'Are you sure?'               
+                 

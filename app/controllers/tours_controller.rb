@@ -63,6 +63,7 @@ class ToursController < ApplicationController
 
       pilgrim_type = params[:search][:pilgrim_type]
       month = params[:months]
+      city = params[:city]
 
       if pilgrim_type == "1"
         @pilgrim_type_name = "Haj"
@@ -75,7 +76,7 @@ class ToursController < ApplicationController
         @pilgrim_type_name = "**Invalid input**"
       end  
 
-      @alltours = Tour.getAllAvailableTours(pilgrim_type,month, sort_table = params[:sort])         
+      @alltours = Tour.getAllAvailableTours(pilgrim_type,month, city, sort_table = params[:sort])         
       
       render "search_preview"
     end
@@ -108,12 +109,5 @@ class ToursController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end  
-
-  def admin_access
-    if !session[:user_admin].present?
-      redirect_to root_url
-    end
-  end  
-
 
 end

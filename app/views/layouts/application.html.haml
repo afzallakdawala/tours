@@ -27,10 +27,14 @@
                   %li.divider-vertical  
                   %li
                     %a{:href => edit_user_path(session[:user_id])} Settings                    
-                  %li.divider-vertical                                
-                  %li                    
-                    %a{:href => tours_admin_path} Admin Access
-                  %li.divider-vertical                    
+                  %li.divider-vertical
+                  -if session[:user_admin]
+                    %li                    
+                      %a{:href => tours_admin_path} Admin Access
+                    %li.divider-vertical    
+                    %li                    
+                      %a{:href => users_verification_path} User Access
+                    %li.divider-vertical                                        
                   %li
                     %a{:href => tours_logout_path} Logout
     -else

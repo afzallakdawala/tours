@@ -67,6 +67,22 @@ class UsersController < ApplicationController
   def thank_you
   end
 
+  def verification
+    admin_access
+    @users = User.where("verified_tour != '1'")
+  end
+
+  def approve
+    admin_access
+
+    user = User.find(params[:id])
+    user.verified_tour = 1
+    user.save!
+
+    redirect_to users_verification_path, :notice => "successfully approved Tour Operator"
+    
+  end
+
   private
   def params_permission
     params.require(:user).permit(:name, :address, :country, :city, :tel, :mobile, :email_id, :password)

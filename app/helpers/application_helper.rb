@@ -21,6 +21,11 @@ module ApplicationHelper
     return tours
   end
 
+  def getAllCities
+    cities = User.select('city').group('city')
+    return cities.map{ |f| '"'+ f.city + '"' }.join ','
+  end
+
   def sortable(column, title = nil)
     title ||= column.titleize
     css_class = column == sort_column ? "current #{sort_direction}" : nil

@@ -30,7 +30,7 @@
                 %th
                   From City
                 %td
-                  = text_field_tag :tag, nil, :'data-provide' => "typeahead", :'data-source' => '["hello", "hellow", "heaven", "helo", "herr"]' 
+                  = text_field_tag :city, nil, :'data-provide' => "typeahead", :'data-source' => "["+getAllCities + "]"
                   (optional)
               %tr
                 %th
