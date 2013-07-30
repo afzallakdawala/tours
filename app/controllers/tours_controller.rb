@@ -45,7 +45,7 @@ class ToursController < ApplicationController
     tour.status = 1
     tour.save!
 
-    redirect_to tours_admin_tours_path, :notice => "successfully approved tour"
+    redirect_to tours_admin_path, :notice => "successfully approved tour"
   end
 
 
@@ -53,7 +53,7 @@ class ToursController < ApplicationController
     admin_access
     @tour = Tour.find(params[:id])
     @tour.delete
-    redirect_to tours_admin_tours_path, :notice => "Entry deleted successfully"    
+    redirect_to tours_admin_path, :notice => "Entry deleted successfully"    
   end
 
 

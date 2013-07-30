@@ -10,7 +10,7 @@ config.action_mailer.smtp_settings = {
   authentication: "plain",
   enable_starttls_auto: true,
   user_name: ENV["afzalmlakdawala@gmail.com"],
-  password: ENV["kgn078600"]
+  password: ENV[""]
 }
   # Settings specified here will take precedence over those in config/application.rb.
 
