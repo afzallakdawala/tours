@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
 
   def email
-    ActionMailer::Base.mail(:from => "me@example.com", :to => "afzalmlakdawala.com", :subject => "test", :body => "test").deliver
+    ActionMailer::Base.mail(:from => "me@example.com", :to => "afzalmlakdawala@gmail.com", :subject => "test", :body => "test").deliver
   end
 
 end
