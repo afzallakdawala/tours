@@ -12,6 +12,7 @@ Tours::Application.routes.draw do
   get "tours/admin"
   match "tours/:id/approve" => 'tours#approve', :via => :get, :as => :tour_approve
 
+  get "home/email"
 
   root :to => "home#index"
 
