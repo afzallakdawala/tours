@@ -47,6 +47,10 @@ class UsersController < ApplicationController
         if user.verified_tour.nil?
           notice = "Your account still not verified"          
         else
+          if user.verified_tour <= 0
+            redirect_to users_login_path, :notice => "Your account is not activated yet !!!"          
+            return
+          end
           session[:user_id] = user.id
           session[:user_name] = user.name
           session[:user_email] = user.email_id
