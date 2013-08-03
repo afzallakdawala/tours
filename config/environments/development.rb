@@ -1,17 +1,5 @@
 Tours::Application.configure do
 
-config.action_mailer.default_url_options = { host: "affire.in" }
-config.action_mailer.raise_delivery_errors = true
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  address: "smtp.gmail.com",
-  port: 587,
-  domain: "affire.in",
-  authentication: "plain",
-  enable_starttls_auto: true,
-  user_name: ENV["afzal@affire.in"],
-  password: ENV[""]
-}
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -39,4 +27,6 @@ config.action_mailer.smtp_settings = {
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  config.assets.precompile += %w( google_analytics.js )
+  
 end
