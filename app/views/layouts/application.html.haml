@@ -1,8 +1,9 @@
 !!! 5
 %html
   %head
-    %title= "Haj Umrah search engine"
-    %meta{ :content => "", :name => "description" }
+    %title= "Online Haj, Umrah, Ziyarat search engine in India @ holyhuz"
+    %meta{ :content => "Haj tour search, Umrah tour search, Ziyarat tour search, Haj availability, Umrah availability, Ziyarat availability, Pilgrim tour operator, Hajj, Umrah, Ziyarat service provider, India haj umrah ziyarat tour service provider, Haji search, Haji, Hajj, Umra, India haj or hajj tour operator, India umrah tour operator, India ziyarat tour operator ", :name => "description" }    
+    %meta{ :content => "Tour operator from to tirupathi,Calicut,mumbai, bangalore, hyderabad, Vizag, Vijayawada, Trichy, Madurai, Coimbatore, delhi, gujrat, maharashtra, kashmir,  cheap fare,discount ,travel,online reservations", :name=>"abstract"}
     %meta{ :content => "Afzal-lakdawala", :name => "author" }
     %meta{ :content => "width=device-width, initial-scale=1.0", :name => "viewport" }
     = stylesheet_link_tag "application", :media => 'all'
@@ -42,8 +43,8 @@
         .row
           .span4
             =image_tag "home-icon.png", :height => "50", :width => "50"
-            %a{:href => home_index_path}
-              %strong MySite.com
+            %a{:href => home_index_path, :style=> "font-size:34px;color:#228B22;background-color:white;"}
+              %strong Holyhuz.com
               %span.label.label-important  Beta
           .span8
             .navbar.pull-right
@@ -56,3 +57,4 @@
           
     .container
       = yield
+      = render :partial => 'layouts/footer'
