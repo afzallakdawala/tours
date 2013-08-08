@@ -22,9 +22,14 @@ module ApplicationHelper
   end
 
   def getAllCities
-    cities = User.select('city').group('city')
+    cities = User.select('DISTINCT city').group('city').order('city')
     return cities.map{ |f| '"'+ f.city + '"' }.join ','
   end
+
+  def getAllpartnersLinks
+    return User.where('verified_tour > 0').select('name, email_id')
+
+  end  
 
   def sortable(column, title = nil)
     title ||= column.titleize

@@ -1,5 +1,10 @@
-%hr
-%footer#footer
+.well{:style=>"margin-bottom:0px;"}
+  %strong Tour operators :
+  - getAllpartnersLinks.each do |partner|
+    %a{:href=>"mailto:#{partner.email_id}"} 
+      = partner.name 
+    |  
+%footer
   %ul.breadcrumb{:style=>"background-color:grey;color:white"}
     %strong
       Design &amp; developed by :

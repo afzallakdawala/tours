@@ -14,8 +14,13 @@ class Tour < ActiveRecord::Base
     end
 
     conditions = ""
+    
+    if !month.blank?
+      conditions = " and EXTRACT(MONTH FROM tours.depature_date) = #{month}"
+    end
+    
     if !city.blank?
-      conditions = " and users.city = '#{city}'"
+      conditions += " and users.city = '#{city}'"
     end
 
     availability = Tour.joins("INNER JOIN users ON tours.tour_id = users.id").
@@ -24,8 +29,7 @@ class Tour < ActiveRecord::Base
                             users.tel as tour_tel, users.country as tour_country, 
                             users.mobile as tour_mobile, users.email_id as tour_email_id ').
                      where("users.verified_tour = '1' and tours.status = '1' and
-                            tours.pilgrim_type = #{pilgrim_type} and 
-                            EXTRACT(MONTH FROM tours.depature_date) = #{month} and 
+                            tours.pilgrim_type = #{pilgrim_type}  and 
                             tours.depature_date >= now() " + conditions).order(sort_table)
       return availability
 
@@ -47,6 +51,5 @@ class Tour < ActiveRecord::Base
 
     return all_status 
   end
-
 
 end

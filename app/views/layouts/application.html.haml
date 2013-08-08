@@ -53,8 +53,8 @@
                   %a{:href=> users_login_path, :class=>'btn btn-success'} Operator Login
                   %strong OR
                   %a{:href=> new_user_path, :class=>'btn btn-primary'} Operator Sign Up
-                      
-          
+    %div#wrap                      
+      .container
+        = yield
     .container
-      = yield
       = render :partial => 'layouts/footer'
