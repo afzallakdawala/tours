@@ -60,7 +60,9 @@
                   -else
                     %span.badge.badge-important
                       = tour.available
-                        
+          -if @alltours.blank?
+            %center
+              %h2 No records to display           
 
 
 

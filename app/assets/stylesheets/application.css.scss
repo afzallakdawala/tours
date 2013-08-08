@@ -20,9 +20,9 @@ html,body {
 
 /* Wrapper for page content to push down footer */
 #wrap {
-  min-height: 90%;
+  min-height: 92%;
 }
 
-#wrap > .container {
-  padding-top: 60px;
+#wrap > body {
+  padding-bottom: 60px;
 }
